@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.UUID;
+
 
 @RestController
 @RequestMapping("/api/patients")
@@ -21,7 +21,7 @@ public class PatientController {
     }
 
     @GetMapping("/{id}")
-    public Patient getById(@PathVariable UUID id) {
+    public Patient getById(@PathVariable Long id) {
         return patientService.getPatientById(id);
     }
 
@@ -31,17 +31,17 @@ public class PatientController {
     }
 
     @GetMapping("/hospital/{hospitalId}")
-    public List<Patient> getByHospital(@PathVariable UUID hospitalId) {
+    public List<Patient> getByHospital(@PathVariable Long hospitalId) {
         return patientService.getPatientsByHospital(hospitalId);
     }
 
     @PutMapping("/{id}")
-    public Patient update(@PathVariable UUID id, @RequestBody Patient patient) {
+    public Patient update(@PathVariable Long id, @RequestBody Patient patient) {
         return patientService.updatePatient(id, patient);
     }
 
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable UUID id) {
+    public void delete(@PathVariable Long id) {
         patientService.deletePatient(id);
     }
 }

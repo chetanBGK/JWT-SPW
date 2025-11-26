@@ -31,20 +31,20 @@ public class FieldInvestigationServiceImpl implements FieldInvestigationService 
     }
 
     @Override
-    public FieldInvestigation getById(UUID id) {
+    public FieldInvestigation getById(Long id) {
         return repository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Investigation not found"));
     }
 
     @Override
-    public List<FieldInvestigation> getByHospital(UUID hospitalId) {
+    public List<FieldInvestigation> getByHospital(Long hospitalId) {
         Hospital hospital = hospitalRepository.findById(hospitalId)
                 .orElseThrow(() -> new RuntimeException("Hospital not found"));
         return repository.findByHospital(hospital);
     }
 
     @Override
-    public List<FieldInvestigation> getByInvestigator(UUID investigatorId) {
+    public List<FieldInvestigation> getByInvestigator(Long investigatorId) {
         Investigator inv = investigatorRepository.findById(investigatorId)
                 .orElseThrow(() -> new RuntimeException("Investigator not found"));
         return repository.findByInvestigator(inv);

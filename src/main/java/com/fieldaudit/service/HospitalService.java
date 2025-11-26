@@ -7,9 +7,9 @@ import java.util.UUID;
 
 public interface HospitalService {
     Hospital createHospital(Hospital hospital);
-    Hospital getHospitalById(UUID id);
+    Hospital getHospitalById(Long id);
     List<Hospital> getAllHospitals();
-    Hospital updateHospital(UUID id, Hospital hospital);
-    void deleteHospital(UUID id);
+    Hospital updateHospital(Long id, Hospital hospital);
+    void deleteHospital(Long id);
 }
 

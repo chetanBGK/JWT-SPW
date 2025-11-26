@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 import java.util.UUID;
 
-public interface MasterTableRepository extends JpaRepository<MasterTable, UUID> {
+public interface MasterTableRepository extends JpaRepository<MasterTable, Long> {
 
     List<MasterTable> findByHospital(Hospital hospital);
 }

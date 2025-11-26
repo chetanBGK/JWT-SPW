@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/audit-questions")
@@ -21,13 +20,13 @@ public class AuditQuestionController {
     }
 
     @GetMapping("/investigation/{investigationId}")
-    public List<AuditQuestion> getByInvestigation(@PathVariable UUID investigationId) {
+    public List<AuditQuestion> getByInvestigation(@PathVariable Long investigationId) {
         return auditQuestionService.getByInvestigation(investigationId);
     }
 
     @GetMapping("/{investigationId}/{formType}")
     public List<AuditQuestion> getByInvestigationAndForm(
-            @PathVariable UUID investigationId,
+            @PathVariable Long investigationId,
             @PathVariable String formType
     ) {
         return auditQuestionService.getByInvestigationAndForm(investigationId, formType);

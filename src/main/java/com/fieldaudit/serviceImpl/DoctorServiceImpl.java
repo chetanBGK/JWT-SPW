@@ -26,7 +26,7 @@ public class DoctorServiceImpl implements DoctorService {
     }
 
     @Override
-    public Doctor getDoctorById(UUID id) {
+    public Doctor getDoctorById(Long id) {
         return doctorRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Doctor not found"));
     }
@@ -37,14 +37,14 @@ public class DoctorServiceImpl implements DoctorService {
     }
 
     @Override
-    public List<Doctor> getDoctorsByHospital(UUID hospitalId) {
+    public List<Doctor> getDoctorsByHospital(Long hospitalId) {
         Hospital hospital = hospitalRepository.findById(hospitalId)
                 .orElseThrow(() -> new RuntimeException("Hospital not found"));
         return doctorRepository.findByHospital(hospital);
     }
 
     @Override
-    public Doctor updateDoctor(UUID id, Doctor doctor) {
+    public Doctor updateDoctor(Long id, Doctor doctor) {
         Doctor existing = getDoctorById(id);
         existing.setFirstName(doctor.getFirstName());
         existing.setLastName(doctor.getLastName());
@@ -52,7 +52,7 @@ public class DoctorServiceImpl implements DoctorService {
     }
 
     @Override
-    public void deleteDoctor(UUID id) {
+    public void deleteDoctor(Long id) {
         doctorRepository.deleteById(id);
     }
 }

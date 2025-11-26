@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 import java.util.UUID;
 
-public interface AuditQuestionRepository extends JpaRepository<AuditQuestion, UUID> {
+public interface AuditQuestionRepository extends JpaRepository<AuditQuestion, Long> {
 
     List<AuditQuestion> findByInvestigation(FieldInvestigation investigation);
 

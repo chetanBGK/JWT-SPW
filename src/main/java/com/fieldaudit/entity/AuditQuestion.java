@@ -1,4 +1,5 @@
 package com.fieldaudit.entity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -12,9 +13,10 @@ import java.util.UUID;
 @NoArgsConstructor
 public class AuditQuestion {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     @Column(name = "audit_que_id")
-    private UUID auditQueId;
+    private Long auditQueId;
 
     private String answer;
     private String auditFormType;
@@ -24,5 +26,6 @@ public class AuditQuestion {
 
     @ManyToOne
     @JoinColumn(name = "investigation_id")
+    @JsonIgnore
     private FieldInvestigation investigation;
 }

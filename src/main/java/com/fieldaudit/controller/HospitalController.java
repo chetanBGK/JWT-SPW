@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.UUID;
+
 
 @RestController
 @RequestMapping("/api/hospitals")
@@ -21,7 +21,7 @@ public class HospitalController {
     }
 
     @GetMapping("/{id}")
-    public Hospital getById(@PathVariable UUID id) {
+    public Hospital getById(@PathVariable Long id) {
         return hospitalService.getHospitalById(id);
     }
 
@@ -31,12 +31,12 @@ public class HospitalController {
     }
 
     @PutMapping("/{id}")
-    public Hospital update(@PathVariable UUID id, @RequestBody Hospital hospital) {
+    public Hospital update(@PathVariable Long id, @RequestBody Hospital hospital) {
         return hospitalService.updateHospital(id, hospital);
     }
 
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable UUID id) {
+    public void delete(@PathVariable Long id) {
         hospitalService.deleteHospital(id);
     }
 }

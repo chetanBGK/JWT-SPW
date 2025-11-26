@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.UUID;
+
 
 @RestController
 @RequestMapping("/api/investigators")
@@ -21,7 +21,7 @@ public class InvestigatorController {
     }
 
     @GetMapping("/{id}")
-    public Investigator getById(@PathVariable UUID id) {
+    public Investigator getById(@PathVariable Long id) {
         return investigatorService.getInvestigatorById(id);
     }
 

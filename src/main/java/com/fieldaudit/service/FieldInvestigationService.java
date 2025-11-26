@@ -7,8 +7,8 @@ import java.util.UUID;
 
 public interface FieldInvestigationService {
     FieldInvestigation create(FieldInvestigation investigation);
-    FieldInvestigation getById(UUID id);
-    List<FieldInvestigation> getByHospital(UUID hospitalId);
-    List<FieldInvestigation> getByInvestigator(UUID investigatorId);
+    FieldInvestigation getById(Long id);
+    List<FieldInvestigation> getByHospital(Long hospitalId);
+    List<FieldInvestigation> getByInvestigator(Long investigatorId);
 }
 

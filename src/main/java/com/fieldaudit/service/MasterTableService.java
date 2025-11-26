@@ -7,5 +7,5 @@ import java.util.UUID;
 
 public interface MasterTableService {
     MasterTable create(MasterTable master);
-    List<MasterTable> getByHospital(UUID hospitalId);
+    List<MasterTable> getByHospital(Long hospitalId);
 }

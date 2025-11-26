@@ -21,7 +21,7 @@ public class InvestigatorServiceImpl implements InvestigatorService {
     }
 
     @Override
-    public Investigator getInvestigatorById(UUID id) {
+    public Investigator getInvestigatorById(Long id) {
         return investigatorRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Investigator not found"));
     }

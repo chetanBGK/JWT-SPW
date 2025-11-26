@@ -26,7 +26,7 @@ public class MasterTableServiceImpl implements MasterTableService {
     }
 
     @Override
-    public List<MasterTable> getByHospital(UUID hospitalId) {
+    public List<MasterTable> getByHospital(Long hospitalId) {
         Hospital hospital = hospitalRepository.findById(hospitalId)
                 .orElseThrow(() -> new RuntimeException("Hospital not found"));
         return repository.findByHospital(hospital);

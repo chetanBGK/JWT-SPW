@@ -26,14 +26,14 @@ public class AuditQuestionServiceImpl implements AuditQuestionService {
     }
 
     @Override
-    public List<AuditQuestion> getByInvestigation(UUID investigationId) {
+    public List<AuditQuestion> getByInvestigation(Long investigationId) {
         FieldInvestigation inv = invRepo.findById(investigationId)
                 .orElseThrow(() -> new RuntimeException("Investigation not found"));
         return repository.findByInvestigation(inv);
     }
 
     @Override
-    public List<AuditQuestion> getByInvestigationAndForm(UUID investigationId, String formType) {
+    public List<AuditQuestion> getByInvestigationAndForm(Long investigationId, String formType) {
         FieldInvestigation inv = invRepo.findById(investigationId)
                 .orElseThrow(() -> new RuntimeException("Investigation not found"));
         return repository.findByInvestigationAndAuditFormType(inv, formType);

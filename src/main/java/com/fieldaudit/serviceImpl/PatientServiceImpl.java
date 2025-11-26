@@ -26,7 +26,7 @@ public class PatientServiceImpl implements PatientService {
     }
 
     @Override
-    public Patient getPatientById(UUID id) {
+    public Patient getPatientById(Long id) {
         return patientRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Patient not found"));
     }
@@ -37,21 +37,21 @@ public class PatientServiceImpl implements PatientService {
     }
 
     @Override
-    public List<Patient> getPatientsByHospital(UUID hospitalId) {
+    public List<Patient> getPatientsByHospital(Long hospitalId) {
         Hospital hospital = hospitalRepository.findById(hospitalId)
                 .orElseThrow(() -> new RuntimeException("Hospital not found"));
         return patientRepository.findByHospital(hospital);
     }
 
     @Override
-    public Patient updatePatient(UUID id, Patient patient) {
+    public Patient updatePatient(Long id, Patient patient) {
         Patient existing = getPatientById(id);
         existing.setPatientName(patient.getPatientName());
         return patientRepository.save(existing);
     }
 
     @Override
-    public void deletePatient(UUID id) {
+    public void deletePatient(Long id) {
         patientRepository.deleteById(id);
     }
 }

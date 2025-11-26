@@ -7,10 +7,10 @@ import java.util.UUID;
 
 public interface PatientService {
     Patient createPatient(Patient patient);
-    Patient getPatientById(UUID id);
+    Patient getPatientById(Long id);
     List<Patient> getAllPatients();
-    List<Patient> getPatientsByHospital(UUID hospitalId);
-    Patient updatePatient(UUID id, Patient patient);
-    void deletePatient(UUID id);
+    List<Patient> getPatientsByHospital(Long hospitalId);
+    Patient updatePatient(Long id, Patient patient);
+    void deletePatient(Long id);
 }
 

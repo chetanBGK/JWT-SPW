@@ -21,7 +21,7 @@ public class HospitalServiceImpl implements HospitalService {
     }
 
     @Override
-    public Hospital getHospitalById(UUID id) {
+    public Hospital getHospitalById(Long id) {
         return hospitalRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Hospital not found"));
     }
@@ -32,7 +32,7 @@ public class HospitalServiceImpl implements HospitalService {
     }
 
     @Override
-    public Hospital updateHospital(UUID id, Hospital hospital) {
+    public Hospital updateHospital(Long id, Hospital hospital) {
         Hospital existing = getHospitalById(id);
         existing.setHospitalName(hospital.getHospitalName());
         existing.setHospitalAddress(hospital.getHospitalAddress());
@@ -42,7 +42,7 @@ public class HospitalServiceImpl implements HospitalService {
     }
 
     @Override
-    public void deleteHospital(UUID id) {
+    public void deleteHospital(Long id) {
         hospitalRepository.deleteById(id);
     }
 }

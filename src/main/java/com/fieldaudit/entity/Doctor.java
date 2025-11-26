@@ -13,8 +13,9 @@ import java.util.UUID;
 @NoArgsConstructor
 public class Doctor {
     @Id
-    @GeneratedValue
-    private UUID id;
+
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     private String firstName;
     private String lastName;
@@ -25,6 +26,7 @@ public class Doctor {
 
     @ManyToOne
     @JoinColumn(name = "hospital_id")
+    @JsonIgnore
     private Hospital hospital;
 
     @OneToMany(mappedBy = "doctor")

@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 import java.util.UUID;
 
-public interface FieldInvestigationRepository extends JpaRepository<FieldInvestigation, UUID> {
+public interface FieldInvestigationRepository extends JpaRepository<FieldInvestigation, Long> {
 
     List<FieldInvestigation> findByHospital(Hospital hospital);
 

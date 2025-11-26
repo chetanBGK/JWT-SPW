@@ -1,4 +1,5 @@
 package com.fieldaudit.entity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,9 +15,9 @@ import java.util.UUID;
 @NoArgsConstructor
 public class FieldInvestigation {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "investigation_id")
-    private UUID investigationId;
+    private Long investigationId;
 
     private Date dateOfInvestigation;
     private String status;
@@ -24,10 +25,12 @@ public class FieldInvestigation {
 
     @ManyToOne
     @JoinColumn(name = "doctor_id")
+    @JsonIgnore
     private Doctor doctor;
 
     @ManyToOne
     @JoinColumn(name = "hospital_id")
+    @JsonIgnore
     private Hospital hospital;
 
     @ManyToOne

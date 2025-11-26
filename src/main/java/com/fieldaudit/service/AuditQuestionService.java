@@ -7,7 +7,7 @@ import java.util.UUID;
 
 public interface AuditQuestionService {
     AuditQuestion save(AuditQuestion question);
-    List<AuditQuestion> getByInvestigation(UUID investigationId);
-    List<AuditQuestion> getByInvestigationAndForm(UUID investigationId, String formType);
+    List<AuditQuestion> getByInvestigation(Long investigationId);
+    List<AuditQuestion> getByInvestigationAndForm(Long investigationId, String formType);
 }
 

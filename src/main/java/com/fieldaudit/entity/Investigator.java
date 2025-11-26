@@ -1,4 +1,5 @@
 package com.fieldaudit.entity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,8 +14,8 @@ import java.util.UUID;
 @NoArgsConstructor
 public class Investigator {
     @Id
-    @GeneratedValue
-    private UUID investigatorId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long investigatorId;
 
     private String firstName;
     private String lastName;
@@ -22,5 +23,6 @@ public class Investigator {
     private String contact;
 
     @OneToMany(mappedBy = "investigator")
+    @JsonIgnore
     private List<FieldInvestigation> investigations;
 }

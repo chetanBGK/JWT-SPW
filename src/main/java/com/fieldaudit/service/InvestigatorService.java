@@ -7,7 +7,7 @@ import java.util.UUID;
 
 public interface InvestigatorService {
     Investigator createInvestigator(Investigator investigator);
-    Investigator getInvestigatorById(UUID id);
+    Investigator getInvestigatorById(Long id);
     List<Investigator> getAllInvestigators();
 }
 

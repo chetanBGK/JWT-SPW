@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.UUID;
+
 
 @RestController
 @RequestMapping("/api/master-data")
@@ -21,7 +21,7 @@ public class MasterTableController {
     }
 
     @GetMapping("/hospital/{hospitalId}")
-    public List<MasterTable> getByHospital(@PathVariable UUID hospitalId) {
+    public List<MasterTable> getByHospital(@PathVariable Long hospitalId) {
         return masterTableService.getByHospital(hospitalId);
     }
 }

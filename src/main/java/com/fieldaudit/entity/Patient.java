@@ -14,8 +14,8 @@ import java.util.UUID;
 @NoArgsConstructor
 public class Patient {
     @Id
-    @GeneratedValue
-    private UUID patientId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long patientId;
 
     private String patientName;
     private String gender;
@@ -40,5 +40,6 @@ public class Patient {
     private Hospital hospital;
 
     @OneToMany(mappedBy = "patient")
+    @JsonIgnore
     private List<FieldInvestigation> investigations;
 }
